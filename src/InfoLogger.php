@@ -24,9 +24,14 @@ class InfoLogger
 
     public function writeLogs() {
         echo '<pre>';
-        foreach (array_reverse(file($this->path)) as $log) {
-            echo $log;
+        if (is_file($this->path)) {
+            foreach (array_reverse(file($this->path)) as $log) {
+                echo $log;
+            }
+        } else {
+            echo 'Пусто';
         }
+
         echo '<pre>';
     }
 }
